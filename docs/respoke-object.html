@@ -314,33 +314,33 @@ sup {
 
 <h1>Properties</h1>
 
-<h2><code>version</code></h2>
+<h2><code>version()</code></h2>
 
-<p><strong>Data Type:</strong> Read-only string</p>
+<p><strong>Returns:</strong> string</p>
 
 <p><strong>Description:</strong> Returns the version of the Respoke client library</p>
 
-<h2><code>hasMessaging</code></h2>
+<h2><code>hasMessaging()</code></h2>
 
-<p><strong>Data Type:</strong> Read-only boolean</p>
+<p><strong>Returns:</strong> boolean</p>
 
 <p><strong>Description:</strong> Returns true if the browser in which the library is loaded supports Respoke messaging. Returns false if messaging is not supported by the browser.</p>
 
-<h2><code>hasCalling</code></h2>
+<h2><code>hasCalling()</code></h2>
 
-<p><strong>Data Type:</strong> Read-only boolean</p>
+<p><strong>Returns:</strong> boolean</p>
 
 <p><strong>Description:</strong> Returns true if the browser in which the library is loaded supports Respoke audio and video calling. Returns false if calling is not supported by the browser. Note that this does not necessarily indicate that the computer has an operational microphone, speakers or camera.</p>
 
-<h2><code>hasDirectConnection</code></h2>
+<h2><code>hasDirectConnection()</code></h2>
 
-<p><strong>Data Type:</strong> Read-only boolean</p>
+<p><strong>Returns:</strong> boolean</p>
 
 <p><strong>Description:</strong> Returns true if the browser in which the library is loaded supports peer-to-peer data connections. Returns false if direct data connections are not supported by the browser.</p>
 
-<h2><code>hasScreenSharing</code></h2>
+<h2><code>hasScreenSharing()</code></h2>
 
-<p><strong>Data Type:</strong> Read-only boolean</p>
+<p><strong>Returns:</strong> boolean</p>
 
 <p><strong>Description:</strong> Returns true if the browser in which the library is loaded supports screen sharing and if an appropriate browser plugin is installed. Returns false if screen sharing is not supported by the browser.</p>
 
@@ -352,7 +352,7 @@ sup {
 
 <h1>Methods</h1>
 
-<h2><code>createClient({param})</code></h2>
+<h2><code>createClient(params)</code></h2>
 
 <p><strong>Description:</strong> Creates and returns a <code>client</code> object. Unlike the <code>connect()</code> method, this method does not automatically attempt to create a connection. To do so, you will need to use the <code>connect()</code> method of the resulting <code>client</code> object.</p>
 
@@ -506,7 +506,20 @@ sup {
 </table>
 
 
-<h2><code>connect({param})</code></h2>
+<h3>Example</h3>
+
+<pre><code>var connectParams = {
+    "appId": "",
+    "developmentMode": true,
+    "endpointId": "fred.jones@someplace.net",
+    "onSuccess": function() {
+        console.log("Client object connected.A")
+    },
+}
+var myClient = respoke.createClient(connectParams);
+</code></pre>
+
+<h2><code>connect(params)</code></h2>
 
 <p><strong>Description:</strong> Creates an returns a <code>client</code> object and attempts to connect with the Respoke platform.</p>
 
